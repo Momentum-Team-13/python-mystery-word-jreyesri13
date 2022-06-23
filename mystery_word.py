@@ -78,15 +78,15 @@ def user_guess(word):
 
                 print("".join(blank_canvas))
 
+                if "_" not in blank_canvas:
+                    print("Congrats, you guessed the word!")
+                    break
+
                 if count != 0:
                     print(f"You have {count} guesses left!")
                 else:
                     print("Sorry, you lost the game!")
                     print(f"The mystery word was: {word}")
-
-                if "_" not in blank_canvas:
-                    print("Congrats, you guessed the word!")
-                    break
             else:
                 if count != 0:
                     print("Try again! Letters guessed:", guess_list)
