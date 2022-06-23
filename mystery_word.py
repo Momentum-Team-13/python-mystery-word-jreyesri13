@@ -4,7 +4,7 @@ import random
 def play_game():
     read_file = read_text_file()
     random_word = get_random_word(read_file)
-    print(f"Answer: {random_word}")
+    # print(f"Answer: {random_word}")
 
     start_of_game(random_word)
     user_guess(random_word)
