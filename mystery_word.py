@@ -1,11 +1,13 @@
 import random
-# from nbformat import read
 
 
 def play_game():
     read_file = read_text_file()
     random_word = get_random_word(read_file)
+    print(f"Answer: {random_word}")
+
     start_of_game(random_word)
+    user_guess(random_word)
 
 
 def read_text_file():
@@ -22,15 +24,27 @@ def get_random_word(words):
     words_length = len(words)
     random_number = random.randrange(0, words_length)
     random_word = words[random_number]
+    upper_case_random_word = random_word.upper()
 
-    return random_word
+    return upper_case_random_word
 
 
 def start_of_game(word):
     word_length = len(word)
-    print(f"The word has {word_length} characters.")
-    print("_" * word_length)
-    print(f"Answer = {word}")
+    underscore_value = "_" * word_length
+
+    print("Hello! Let's play a word guessing game!")
+    print(f"The mystery word has {word_length} characters: {underscore_value}")
+    print("You will have 8 guesses!")
+    print()
+
+
+def check_user_input():
+    pass
+
+
+def user_guess(word):
+    pass
 
 
 if __name__ == "__main__":
