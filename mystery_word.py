@@ -40,11 +40,60 @@ def start_of_game(word):
 
 
 def check_user_input():
-    pass
+    while True:
+        user_value = input("Please enter a single character value: ")
+        user_length = len(user_value)
+
+        if user_length == 1:
+            if user_value.isalpha():
+                return user_value.upper()
+                # print(user_value)
+                # break
+            else:
+                print("Invalid input! Only enter a character value!")  
+        else:
+            print("Invalid input! Only enter a single value!")
+
+    # return user_value
 
 
 def user_guess(word):
-    pass
+    guess_list = []
+    count = 8
+    # length_list = len(guess_list)
+
+    while count > 0:
+        user_input = check_user_input()
+
+        if user_input in guess_list:
+            print("You have already guessed this character!")
+        else:
+            guess_list.append(user_input)
+            count -= 1
+            # print(f"You have {count} guesses left!")
+
+            if user_input in word:
+                blank_canvas = [i if i in guess_list else (i.replace(i, "_")) for i in word]
+                # print(blank_canvas)
+
+                print("".join(blank_canvas))
+
+                if count != 0:
+                    print(f"You have {count} guesses left!")
+                else:
+                    print("Sorry, you lost the game!")
+                    print(f"The mystery word was: {word}")
+
+                if "_" not in blank_canvas:
+                    print("Congrats, you guessed the word!")
+                    break
+            else:
+                if count != 0:
+                    print("Try again! Letters guessed:", guess_list)
+                    print(f"You have {count} guesses left!")
+                else:
+                    print("Sorry, you lost the game!")
+                    print(f"The mystery word was: {word}")
 
 
 if __name__ == "__main__":
