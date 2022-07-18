@@ -57,7 +57,7 @@ def check_user_input():
     # return user_value
 
 
-#can break down into several steps
+# can break down into several steps
 def user_guess(word):
     guess_list = []
     count = 8
